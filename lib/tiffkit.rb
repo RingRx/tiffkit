@@ -14,7 +14,7 @@ module Tiffkit
 
   def merge(tiff_files, output_file)
     validate_files!(tiff_files)
-    cmd = TTY::Command.new
+    cmd = TTY::Command.new(printer: :null)
     cmd_line = command_line(tiff_files, output_file)
     cmd.run(cmd_line)
   rescue => e
